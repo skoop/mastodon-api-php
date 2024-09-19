@@ -53,7 +53,7 @@ class MastodonAPI
     private function getResponse(string $endpoint, string $method, array $json, bool $authenticate = true): mixed
     {
         $uri = $this->config->getBaseUrl() . '/api/';
-        $uri .= ConfigurationVO::API_VERSION . $endpoint;
+        $uri .= $this->config->apiVersion . $endpoint;
 
         $allowedMethods = array_column(HttpOperation::cases(), 'name');
         if (!in_array($method, $allowedMethods)) {
