@@ -22,10 +22,12 @@ class MastodonOAuth
      * Creates the OAuth object from the configuration.
      */
     public function __construct(
-        $client_name = ConfigurationVO::DEFAULT_NAME,
-        $mastodon_instance = ConfigurationVO::DEFAULT_INSTANCE
+        string $client_name = ConfigurationVO::DEFAULT_NAME,
+        string $mastodon_instance = ConfigurationVO::DEFAULT_INSTANCE,
+        string $redirectUris = ConfigurationVO::DEFAULT_REDIRECT_URIS,
+        string $api_version = ConfigurationVO::API_VERSION
     ) {
-        $this->config = new ConfigurationVO($client_name, $mastodon_instance);
+        $this->config = new ConfigurationVO($client_name, $mastodon_instance, $redirectUris, $api_version);
         $this->client = new Client();
     }
 
